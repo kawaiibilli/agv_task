@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/swastik/catkin_ws/src/agv_task/build/devel/setup.sh
