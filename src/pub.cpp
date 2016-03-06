@@ -28,7 +28,7 @@ typedef struct
   int jj;
 }poin;
 
-poin visited[200][200];
+poin **visited;
 int main(int argc,char **argv)
 {
   ros::init(argc,argv,"pointer");
@@ -40,6 +40,14 @@ int main(int argc,char **argv)
   
   img = imread("/home/swastik/catkin_ws/src/agv_task/src/ps1.png",CV_LOAD_IMAGE_COLOR);
     int gci,gcj,rci,rcj,i,j;
+
+    visited=(poin **)malloc(img.rows*sizeof(poin *));
+
+    for(i=0;i<img.rows;i++)
+	{
+	  *(visited+i)=(poin *)malloc(img.cols*sizeof(poin));
+        }
+
 
     int gmaxj=0,gminj=img.cols,gmaxi=0,gmini=img.rows,rmaxj=0,rminj=img.cols,rmaxi=0,rmini=img.cols;
     Mat im=imread("/home/swastik/catkin_ws/src/agv_task/src/ps1.png",CV_LOAD_IMAGE_COLOR);
